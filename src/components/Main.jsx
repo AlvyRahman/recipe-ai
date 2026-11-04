@@ -12,10 +12,12 @@ export default function Main()
     function handleSubmit(event)
     {
         event.preventDefault()
-        const formData = new FormData(event.currentTarget)
+        const form = event.currentTarget
+        const formData = new FormData(form)
         const newIngredient = formData.get("ingredient")
         setIngredients(prev => [...prev, newIngredient])
         console.log(ingredients)
+        form.reset()
     }
 
     return(
