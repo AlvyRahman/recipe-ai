@@ -27,7 +27,7 @@ export default function Main()
                 />
                 <button>Add Ingrediant</button>
             </form>
-            <ul>
+            <ul className="ingredients-list" aria-live="polite">
                 {ingredientsListItems}
             </ul>
         </main>
