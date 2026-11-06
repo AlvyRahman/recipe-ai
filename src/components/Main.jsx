@@ -27,9 +27,12 @@ export default function Main()
                 />
                 <button>Add Ingrediant</button>
             </form>
-            <ul className="ingredients-list" aria-live="polite">
+            <section>
+                <h2>Current ingredients:</h2>
+                <ul className="ingredients-list" aria-live="polite">
                 {ingredientsListItems}
-            </ul>
+                </ul>
+            </section>
         </main>
     )
 }
