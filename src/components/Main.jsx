@@ -27,6 +27,7 @@ export default function Main()
                 />
                 <button>Add Ingrediant</button>
             </form>
+            {ingredients.length > 0 && 
             <section>
                 <h2>Current ingredients:</h2>
                 <ul className="ingredients-list" aria-live="polite">
@@ -40,6 +41,7 @@ export default function Main()
                     <button>Get a recipe</button>
                 </div>
             </section>
+            }
         </main>
     )
 }
