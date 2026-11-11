@@ -1,15 +1,12 @@
 import React from "react"
 import Recipe from "./Recipe"
+import IngredientsList from "./IngredientList"
 
 export default function Main()
 {
     const [ingredients, setIngredients] = React.useState([])
     
-    const [recipeShown, setRecipeShown] = React.useState(false) // testing... will delete later
-    
-    const ingredientsListItems = ingredients.map(ingredient => (
-        <li key={ingredient}>{ingredient}</li>
-    ))
+    const [recipeShown, setRecipeShown] = React.useState(false)
 
     function addIngredient(formData)
     {
@@ -35,21 +32,10 @@ export default function Main()
                 <button>Add Ingrediant</button>
             </form>
             {ingredients.length > 0 && 
-            <section>
-                <h2>Current ingredients:</h2>
-                <ul className="ingredients-list" aria-live="polite">
-                {ingredientsListItems}
-                </ul>
-                {ingredients.length > 3 && 
-                <div className="get-recipe-container">
-                    <div>
-                        <h3>Ready for a recipe?</h3>
-                        <p>Generate a recipe from your list of ingredients.</p>
-                    </div>
-                    <button onClick={toggleRecipeShown}>Get a recipe</button>
-                </div>
-                }
-            </section>
+            <IngredientsList 
+            ingredients={ingredients}
+            toggleRecipeShown={toggleRecipeShown}
+            />
             }
             {recipeShown &&
             <Recipe />
