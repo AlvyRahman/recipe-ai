@@ -1,6 +1,7 @@
 import React from "react"
 import Recipe from "./Recipe"
 import IngredientsList from "./IngredientList"
+import { getRecipeFromGenAi } from "../ai"
 
 export default function Main()
 {
@@ -34,7 +35,7 @@ export default function Main()
             {ingredients.length > 0 && 
             <IngredientsList 
             ingredients={ingredients}
-            toggleRecipeShown={toggleRecipeShown}
+            getRecipeFromGenAi={getRecipeFromGenAi}
             />
             }
             {recipeShown &&

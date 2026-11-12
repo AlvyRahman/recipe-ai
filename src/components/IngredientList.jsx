@@ -4,6 +4,13 @@ export default function IngredientsList(p)
         <li key={ingredient}>{ingredient}</li>
     ))
 
+    function getRecipe()
+    {
+        const aiResponse = p.getRecipeFromGenAi(p.ingredients)
+        console.log(aiResponse)
+        //p.getRecipeFromGenAi(p.ingredients)
+    }
+
     return(
         <section>
             <h2>Current ingredients:</h2>
@@ -16,7 +23,7 @@ export default function IngredientsList(p)
                     <h3>Ready for a recipe?</h3>
                     <p>Generate a recipe from your list of ingredients.</p>
                 </div>
-                <button onClick={p.toggleRecipeShown}>Get a recipe</button>
+                <button onClick={getRecipe}>Get a recipe</button>
             </div>
             }
         </section>
