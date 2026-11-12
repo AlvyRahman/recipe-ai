@@ -10,7 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@huggingface/inference": "^4.13.32",
+    "@google/genai": "^3.2.0",
     "react": "^19.3.1",
     "react-dom": "^19.3.1"
   },
