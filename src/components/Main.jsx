@@ -7,7 +7,7 @@ export default function Main()
 {
     const [ingredients, setIngredients] = React.useState([])
     
-    const [recipeShown, setRecipeShown] = React.useState(false)
+    const [recipe, setRecipe] = React.useState("")
 
     function addIngredient(formData)
     {
@@ -15,9 +15,11 @@ export default function Main()
         setIngredients(prev => [...prev, newIngredient])
     }
 
-    function toggleRecipeShown()
+    async function getRecipe()
     {
-        setRecipeShown(prev => !prev)
+        const recipeMarkdown = await getRecipeFromGenAi(ingredients)
+        console.log(recipeMarkdown)
+        setRecipe(recipeMarkdown)
     }
 
     return(
@@ -35,11 +37,11 @@ export default function Main()
             {ingredients.length > 0 && 
             <IngredientsList 
             ingredients={ingredients}
-            getRecipeFromGenAi={getRecipeFromGenAi}
+            getRecipe={getRecipe}
             />
             }
-            {recipeShown &&
-            <Recipe />
+            {recipe &&
+            <Recipe recipe={recipe}/>
             }
         </main>
     )
