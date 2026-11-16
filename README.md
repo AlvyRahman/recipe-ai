@@ -1,16 +1,74 @@
-# React + Vite
+# Recipe AI
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A simple React app that suggests recipes based on the ingredients you have on hand, powered by LLM API.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- Add ingredients to a running list
+- Generate an AI-suggested recipe once you’ve added more than 3 ingredients
+- View the generated recipe rendered in Markdown
 
-## React Compiler
+## Tech Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- [React 19](https://react.dev/)
+- [Vite](https://vite.dev/)
+- [@google/genai](https://www.npmjs.com/package/@google/genai) (Gemini API)
+- [react-markdown](https://github.com/remarkjs/react-markdown)
 
-## Expanding the ESLint configuration
+## Getting Started
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### Prerequisites
+
+- Node.js and npm
+- A Google Gemini API key
+
+### Installation
+
+1. Clone the repository and move into the project directory:
+   ```bash
+   git clone <your-repo-url>
+   cd recipe-ai
+   ```
+
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+
+3. Create a `.env` file in the project root and add your API key:
+   ```env
+   VITE_GEMINI_API_KEY=your_gemini_api_key_here
+   ```
+
+4. Start the development server:
+   ```bash
+   npm run dev
+   ```
+
+## Available Scripts
+
+- `npm run dev` — Start the Vite development server
+- `npm run build` — Build the app for production
+- `npm run preview` — Preview the production build locally
+- `npm run lint` — Run ESLint
+
+## Project Structure
+
+```text
+src/
+├── ai.js                  # Gemini API integration and prompt setup
+├── App.jsx                # App layout
+├── main.jsx               # React entry point
+├── index.css              # Global styles
+├── assets/                # Static assets
+└── components/
+    ├── Header.jsx         # App header
+    ├── Main.jsx           # Ingredient input and recipe generation logic
+    ├── IngredientList.jsx # Ingredient list and recipe trigger
+    └── Recipe.jsx         # Renders generated recipe markdown
+```
+
+## Notes
+
+- Your ingredient list is sent to the Gemini API to generate a recipe suggestion.
+- Keep your `.env` file private and never commit API keys to version control.
