@@ -1,8 +1,10 @@
+import ReactMarkdown from 'react-markdown'
+
 export default function Recipe(p)
 {
     return(
-        <section>
-            {p.recipe}
+        <section className="suggested-recipe-container" aria-live="polite">
+            <ReactMarkdown>{p.recipe}</ReactMarkdown>
         </section>
     )
 }
